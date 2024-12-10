@@ -1,3 +1,4 @@
+The ESP32 is an inexpensive dev board from espressif
 
 ESP-IDF docs - [ESP-IDF Programming Guide - ESP32 - — ESP-IDF Programming Guide v5.3.2 documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/index.html)
 
