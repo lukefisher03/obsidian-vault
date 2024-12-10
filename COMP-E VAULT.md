@@ -1,0 +1,1 @@
+This vault is dedicated to curating things that are interesting that I want to save or want to learn more about. There will be a lot of different categories and areas of interest to explore.
