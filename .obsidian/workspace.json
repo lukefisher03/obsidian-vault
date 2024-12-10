@@ -1,0 +1,171 @@
+{
+  "main": {
+    "id": "9266188996d586c7",
+    "type": "split",
+    "children": [
+      {
+        "id": "096b531a9c89244c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "01eeab49287aa80e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "COMP-E VAULT.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "COMP-E VAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "53bac0d7977df3e2",
+    "type": "split",
+    "children": [
+      {
+        "id": "6175c1f7885521c1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1adbc3486b410ef0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "dba387fdafa19ef3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ef701a3e5a727811",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6dd30d0b8c598ec1",
+    "type": "split",
+    "children": [
+      {
+        "id": "a6c8be3f35bdfaa9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3d7ff3c0e2af518e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "COMP-E VAULT.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for COMP-E VAULT"
+            }
+          },
+          {
+            "id": "5a63d7b7b4eece82",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "COMP-E VAULT.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from COMP-E VAULT"
+            }
+          },
+          {
+            "id": "3844a38b5b7e3e24",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "48332fc023d7ce3c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "COMP-E VAULT.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of COMP-E VAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "01eeab49287aa80e",
+  "lastOpenFiles": [
+    "README.md",
+    "COMP-E VAULT.md",
+    "embedded/ESP32.md"
+  ]
+}
