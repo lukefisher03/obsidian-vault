@@ -4,21 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "d81e2e77bc68770e",
+        "id": "af7edf3e453c5a19",
         "type": "tabs",
         "children": [
           {
-            "id": "c5643838329ce3bb",
+            "id": "08acf3d37e3e9c8c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "diff-view",
               "state": {
-                "file": "embedded/ESP32.md",
-                "mode": "source",
-                "source": false
+                "file": ".obsidian/workspace.json",
+                "staged": true
               },
-              "icon": "lucide-file",
-              "title": "ESP32"
+              "icon": "git-pull-request",
+              "title": "Diff View (workspace.json)"
             }
           }
         ]
@@ -173,15 +172,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c5643838329ce3bb",
+  "active": "08acf3d37e3e9c8c",
   "lastOpenFiles": [
-    "embedded/General.md",
-    "Random Interesting/Random things I might be interested in.md",
-    "embedded/ESP32.md",
     "COMP-E VAULT.md",
+    "Random Interesting/Random things I might be interested in.md",
     "Random Interesting",
-    "Untitled 1.canvas",
-    "Untitled.canvas",
+    "embedded/General.md",
+    "embedded/ESP32.md",
     "README.md"
   ]
 }
