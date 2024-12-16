@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "af7edf3e453c5a19",
+        "id": "73d567e8cfaecb66",
         "type": "tabs",
         "children": [
           {
-            "id": "08acf3d37e3e9c8c",
+            "id": "a61b43baaeb893f5",
             "type": "leaf",
             "state": {
               "type": "diff-view",
               "state": {
                 "file": ".obsidian/workspace.json",
-                "staged": true
+                "staged": false
               },
               "icon": "git-pull-request",
               "title": "Diff View (workspace.json)"
@@ -172,7 +172,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "08acf3d37e3e9c8c",
+  "active": "a61b43baaeb893f5",
   "lastOpenFiles": [
     "COMP-E VAULT.md",
     "Random Interesting/Random things I might be interested in.md",

@@ -13,7 +13,7 @@ What path am I looking to go down? There are many options:
 - Teaching
 
 
-*HACKER NEWS IS COOL* - Good resources for niche blogs and possibly more reputable information.
+*HACKER NEWS IS COOL* - Good resources for niche blogs and possibly more reputable information?
 
 ## Coming up with projects?
 
