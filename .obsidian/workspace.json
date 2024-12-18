@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0c2afa26acd24e31",
+        "id": "73d567e8cfaecb66",
         "type": "tabs",
         "children": [
           {
-            "id": "d92b672427d14b8d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "COMP-E VAULT.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "COMP-E VAULT"
-            }
-          },
-          {
-            "id": "3e919dd629b83da6",
+            "id": "a61b43baaeb893f5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -35,8 +21,7 @@
               "title": "Projects"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -188,16 +173,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3e919dd629b83da6",
+  "active": "a61b43baaeb893f5",
   "lastOpenFiles": [
     "COMP-E VAULT.md",
     "Projects.md",
     "Random Interesting/Random things I might be interested in.md",
+    "Random Interesting",
     "embedded/General.md",
     "embedded/ESP32.md",
-    "Random Interesting",
-    "Untitled 1.canvas",
-    "Untitled.canvas",
     "README.md"
   ]
 }

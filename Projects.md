@@ -16,3 +16,5 @@ Is this a good way to learn C?
 Using SDL3 for long term support. Build from source. Should probably figure out a build system.
 
 Hopefully I can use SDL as a dynamically linked library. [Chapter 16. Using Libraries with GCC | Red Hat Product Documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/developer_guide/gcc-using-libraries#gcc-using-libraries_using-library-gcc) This is a good resource from Red Hat on Dynamic vs Static linking
+
+- Processes for static vs dynamic linking are pretty much the same. Just for static you delete the `.dylib` or `.so` file in your `lib` directory to force the linker to use the `.a` which will statically link the library
