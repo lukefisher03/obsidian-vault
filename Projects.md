@@ -9,7 +9,7 @@ Is this a good way to learn C?
 - [LearnOpenGL - OpenGL](https://learnopengl.com/Getting-started/OpenGL)
 - [SDL2/Introduction - SDL Wiki](https://wiki.libsdl.org/SDL2/Introduction)
 - [Space Invaders 1978 callgraph](https://blog.loadzero.com/demo/si79cs3.html)
-
+- Interesting article about memory alignment - [link](https://hps.vi4io.org/_media/teaching/wintersemester_2013_2014/epc-14-haase-svenhendrik-alignmentinc-paper.pdf)
 
 #### Progress
 ###### Setup and initialization
