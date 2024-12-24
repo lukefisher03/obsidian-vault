@@ -1,6 +1,6 @@
 
 
-## Space Invaders in ~~OPENGL~~ SDL?
+## Galaga in ~~OPENGL~~ SDL?
 #### Questions
 Is opengl the best choice for this? - No, use SDL
 Resources for this project?
@@ -10,7 +10,7 @@ Is this a good way to learn C?
 - [SDL2/Introduction - SDL Wiki](https://wiki.libsdl.org/SDL2/Introduction)
 - [Space Invaders 1978 callgraph](https://blog.loadzero.com/demo/si79cs3.html)
 - Interesting article about memory alignment - [link](https://hps.vi4io.org/_media/teaching/wintersemester_2013_2014/epc-14-haase-svenhendrik-alignmentinc-paper.pdf)
-
+- Sample implementation of Galaga in C using ncurses [Index of ~ggolish/current-courses/cs256/code/projects/galaga](https://cs.indstate.edu/~ggolish/past-courses/cs256-summer2019/code/?dir=./projects/galaga)
 #### Progress
 ###### Setup and initialization
 Using SDL3 for long term support. Build from source. Should probably figure out a build system.
