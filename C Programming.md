@@ -1,0 +1,1 @@
+- Using macros before writing functions is normally premature optimization
