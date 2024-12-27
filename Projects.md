@@ -12,6 +12,8 @@ Is this a good way to learn C?
 - Interesting article about memory alignment - [link](https://hps.vi4io.org/_media/teaching/wintersemester_2013_2014/epc-14-haase-svenhendrik-alignmentinc-paper.pdf)
 - Sample implementation of Galaga in C using ncurses [Index of ~ggolish/current-courses/cs256/code/projects/galaga](https://cs.indstate.edu/~ggolish/past-courses/cs256-summer2019/code/?dir=./projects/galaga)
 - Interesting guide on C programming https://beej.us/guide/bgc/html/split/hello-world.html
+- Article on spatial partitioning to make bullet collision more efficient https://gameprogrammingpatterns.com/spatial-partition.html
+	- Quad trees for collisions? https://jimkang.com/quadtreevis/ <- interactive site
 #### Progress
 ###### Setup and initialization
 Using SDL3 for long term support. Build from source. Should probably figure out a build system.
