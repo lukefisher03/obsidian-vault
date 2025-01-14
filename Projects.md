@@ -13,8 +13,11 @@ Is this a good way to learn C?
 - Sample implementation of Galaga in C using ncurses [Index of ~ggolish/current-courses/cs256/code/projects/galaga](https://cs.indstate.edu/~ggolish/past-courses/cs256-summer2019/code/?dir=./projects/galaga)
 - Interesting guide on C programming https://beej.us/guide/bgc/html/split/hello-world.html
 - Article on spatial partitioning to make bullet collision more efficient https://gameprogrammingpatterns.com/spatial-partition.html
-	- Quad trees for collisions? https://jimkang.com/quadtreevis/ <- interactive site
-	- Really helpful step by step breakdown of quad tree operations as well as interactive simulations https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/PRquadtree.html
+	- Quad trees for collisions? [here](https://jimkang.com/quadtreevis/) <- interactive site
+	- Really helpful step by step breakdown of quad tree operations as well as interactive simulations [here](https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/PRquadtree.html)
+	- Benchmarks of different spatial partitioning algorithms [here](https://0fps.net/2015/01/23/collision-detection-part-3-benchmarks/). The conclusion is that quad trees might not be the fastest, oh well. Too late. I should've done a grid system, maybe next time.
+	- [Quad trees with values that span multiple quadrants](https://pvigier.github.io/2019/08/04/quadtree-collision-detection.html)
+	- [C Structure Packing](http://www.catb.org/esr/structure-packing/)
 #### Progress
 ###### Setup and initialization
 Using SDL3 for long term support. Build from source. Should probably figure out a build system.

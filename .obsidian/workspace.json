@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a61b43baaeb893f5",
+            "id": "26b39b97df6e9366",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Projects.md",
+                "file": "School/Operating Systems/Assignment One - Installing Linux and Building a Kernel.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Projects"
+              "title": "Assignment One - Installing Linux and Building a Kernel"
             }
           }
         ]
@@ -173,10 +173,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a61b43baaeb893f5",
+  "active": "26b39b97df6e9366",
   "lastOpenFiles": [
-    "COMP-E VAULT.md",
+    "IMG_0247.jpg",
+    "School/Operating Systems/Assignment One - Installing Linux and Building a Kernel.md",
+    "IMG_0253.jpg",
+    "IMG_0252.jpg",
+    "KoaJS, HapiJS, Fastify, Django Ninja.md",
+    "School/Operating Systems",
+    "School",
+    "Backend_Framework_Comparison.pdf",
     "Projects.md",
+    "COMP-E VAULT.md",
+    "C Programming.md",
     "Random Interesting/Random things I might be interested in.md",
     "Random Interesting",
     "embedded/General.md",
