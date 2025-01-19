@@ -1,6 +1,6 @@
 
 
-## Galaga in ~~OPENGL~~ SDL?
+## Galaga Inspired Game in ~~OPENGL~~ SDL?
 #### Questions
 Is opengl the best choice for this? - No, use SDL
 Resources for this project?
@@ -30,7 +30,19 @@ Hopefully I can use SDL as a dynamically linked library. [Chapter 16. Using Li
 ### Handling Collisions
 We need to check to see if any of the currently fired bullets have hit any of the currently spawned enemies. Naturally the brute force method for this requires looping through every single bullet and then for every bullet loop through every enemy. 
 
+### Handling Multiple Levels
+~~Currently, the positions of the enemies are just randomly built at runtime. I'm thinking I want to build a grid in the screen that allows me to use a big 2d array to represent a space and then place enemies in there. I'd need to come up with some way to render the levels. Then I could also create a queue data structure to process levels. A level would be complete once a player eliminates all enemies in a certain time frame.~~
+
+Actually, I think I want some more flexibility in level design. What if I want certain groups of the enemies to move differently than other parts? I think I'll define enemy groups and then a group could be one or more enemies rendered together on after the other with a few pixels of padding between them.
+
 # Quad Tree Image Compression?
 ### Resources
 - Good article on quad trees https://romanglushach.medium.com/what-is-a-quadtree-and-how-it-works-6286791fb46a
 - Interesting blog about animations and what not - https://lisyarus.github.io/blog/
+
+
+# Game of Life
+- Todo stuff here
+
+# Level Builder for Galaga Inspired Game
+- Todo stuff here

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "School/Operating Systems/Assignment One - Installing Linux and Building a Kernel.md",
+                "file": "Projects.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Assignment One - Installing Linux and Building a Kernel"
+              "title": "Projects"
             }
           }
         ]
@@ -175,21 +175,24 @@
   },
   "active": "26b39b97df6e9366",
   "lastOpenFiles": [
-    "IMG_0247.jpg",
-    "School/Operating Systems/Assignment One - Installing Linux and Building a Kernel.md",
-    "IMG_0253.jpg",
-    "IMG_0252.jpg",
+    "School/Embedded Systems/Embedded Notes.md",
+    "School/Operating Systems/Assignment 1 - Installing Linux and Building a Kernel.md",
     "KoaJS, HapiJS, Fastify, Django Ninja.md",
-    "School/Operating Systems",
-    "School",
-    "Backend_Framework_Comparison.pdf",
     "Projects.md",
     "COMP-E VAULT.md",
-    "C Programming.md",
     "Random Interesting/Random things I might be interested in.md",
-    "Random Interesting",
+    "School/Embedded Systems/Untitled",
+    "School/Embedded Systems",
+    "Backend_Framework_Comparison.pdf",
+    "C Programming.md",
+    "IMG_0253.jpg",
+    "IMG_0252.jpg",
     "embedded/General.md",
     "embedded/ESP32.md",
+    "IMG_0247.jpg",
+    "School/Operating Systems",
+    "School",
+    "Random Interesting",
     "README.md"
   ]
 }
