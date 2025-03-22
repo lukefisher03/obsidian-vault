@@ -1,0 +1,6 @@
+
+**Implement Queue using Stacks**
+Implement queue using 2 stacks. The first stack contains all of the elements in their queue order. When we need to peek the queue we just look at the first element of the stack. If we need to pop, then we translate the first stack to the second and then pop the last element (which was previously the front of the queue due to the reversal after popping elements). Then we can refill the first stack to restore the original order.
+
+*Follow up optimization*
+If you do the naive way of transferring all of the elements from stack 1 to stack 2, popping the last element from stack 2, and then re-transferring the elements back to stack 1, you end up with a O(2n) time complexity. Doing the second transfer is technically extraneous. Suppose you pop more than 1 element at once. You would do 2 pops before returning the stack. Well, what if instead you didn't do the second transfer. Then, when peeking, you could just look at the last element of stack 2 if it has elements, otherwise the first element of stack 1. Then when dequeueing you would only have to perform an O(1) pop operation most of the time. It has *amortized* O(1) time. Meaning that occasionally, there may be a higher time complexity, but when that higher time complexity is reduced over the other events it's time complexity is O(1). 

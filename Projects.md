@@ -33,7 +33,12 @@ We need to check to see if any of the currently fired bullets have hit any of th
 ### Handling Multiple Levels
 ~~Currently, the positions of the enemies are just randomly built at runtime. I'm thinking I want to build a grid in the screen that allows me to use a big 2d array to represent a space and then place enemies in there. I'd need to come up with some way to render the levels. Then I could also create a queue data structure to process levels. A level would be complete once a player eliminates all enemies in a certain time frame.~~
 
-Actually, I think I want some more flexibility in level design. What if I want certain groups of the enemies to move differently than other parts? I think I'll define enemy groups and then a group could be one or more enemies rendered together on after the other with a few pixels of padding between them.
+~~Actually, I think I want some more flexibility in level design. What if I want certain groups of the enemies to move differently than other parts? I think I'll define enemy groups and then a group could be one or more enemies rendered together on after the other with a few pixels of padding between them.~~
+
+#### How Do I Format Levels?
+I'm running into a roadblock here. Do I store levels as individual files with their own properties and custom update functions? How much should I standardize versus just making custom things for each level?
+
+I think I'd like to make functionality as custom as possible at the level degree. However, at the enemy degree make custom functions that can be triggered inside a level.
 
 # Quad Tree Image Compression?
 ### Resources

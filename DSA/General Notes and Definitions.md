@@ -1,0 +1,3 @@
+**Amortized Analysis** - Sometimes the operations in an algorithm may vary in time or space complexity depending on the given step. Amortized analysis is a method for analyzing the efficiency of an algorithm where the cost of the slowest running step is spread out over the cost of the more efficient steps. Effectively "amortizing" that less efficient worst case step. 
+
+**Online vs Offline algorithms** - Online algorithms process problem data serially, or one by one. The algorithm isn't aware of the entirety of the input at one time. Offline algorithms have the entire input data to solve the problem given from the start.

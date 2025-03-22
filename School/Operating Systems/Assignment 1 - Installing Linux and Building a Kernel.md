@@ -13,18 +13,20 @@ I used VMware Fusion as my VM client. The primary challenge is installation on a
 You can achieve this by running these commands:
 ```
 $ mkdir team_dropbox
-$ chmod 764 team_dropbox
+$ chmod 1774 team_dropbox
 ```
 Linux file permissions are broken down into 3 categories. The categories relate to the file / directory owner, the file groups, and all other users. When looking at a file's permissions you can use this command:
 ```
 $ ls -l
 ```
 
-The 764 in chmod is broken down like this:
+The 774 in chmod is broken down like this:
+- The `1` represents the `sticky` bit. The sticky bit disables deleting within the directory. Only the owner (or root) of a file can delete a file.
 - The `7` represents all permissions granted. Read, write, execute.
-- The `6` represents only read and write permissions. Since it's the second digit, it applies to groups
+- The `7` represents all permissions granted. Since it's the second digit (after the special permissions), it applies to groups.
 - The `4` represents only read permissions. Since it's the final digit it represents any user.
-You can find a list of what the different numbers mean online. In short they use a number to represent each permission (read, write, execute) and then use the combination of them to form a single number that encapsulates all the permissions for a specific category. Since there's 3 categories, there's 3 numbers.
+
+You can find a list of what the different numbers mean online. In short they use a number to represent each permission (read, write, execute) and then use the combination of them to form a single number that encapsulates all the permissions for a specific category. The 1 in the beginning limits the file permissions so that only individual file owners can delete their own respective files within the directory.
 
 *__2.2:__  You are asked to find every file in anywhere in your current working directory that were modified after midnight of the current day.  Your solution should recursively descend all subdirectories reachable from your current working directory and list any filename associated with a file that satisfies the search criterion.  Show all the Bash shell commands you would employ and explain what each command does and how each contributes to achieving the desired effect. Note: There is more than one correct way to accomplish this task, though the "find" command may be helpful.*
 
