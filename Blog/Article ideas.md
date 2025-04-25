@@ -1,0 +1,2 @@
+- Quad tree image compression
+- Syllable decomposition
