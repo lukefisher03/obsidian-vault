@@ -1,4 +1,4 @@
-### Definition and Overview of an OS | Chapter 1
+## Definition and Overview of an OS | Chapter 1
 
 **Operating System Goals**: 
 - Execute user code that is safe, secure, efficient, and reliable
@@ -6,34 +6,34 @@
 - Provide interface for users to modify how their running programs interact with one another
 The OS allocates resources and controls the executions of other programs. **Systems programming** is leveraging the knowledge of OS systems to create programs with useful effects.
 
-##### Interrupts
+#### Interrupts
 When the CPU is interrupted it immediately stops what it's doing and transfers execution to another fixed location. The interrupt architecture must also keep the previous state so it can be reverted to upon the interrupt's completion.
 **Interrupts** are software or hardware signals that demand instant attention from the OS. 
 **Interrupt Vector** - An array that acts as a lookup table for interrupt service routines (ISR). An interrupt request gives an index and that's used to lookup the memory address of the corresponding ISR. 
 **Traps** are when a user program asks the kernel to do something. It's normally an intentional transfer of control. After the kernel routine (trap handler) is completed, execution is returned to the user processes. 
 **Faults** are really a type of trap. They appear when exceptions occur and handle issues like divide by zero. 
 
-##### Basic Storage Structure
+#### Basic Storage Structure
 Memory is divided into two primary types: volatile and nonvolatile memory. Semiconductor circuits can be used in the manufacturing of either. 
 
-##### I/O Structure
+#### I/O Structure
 **DMA** or direct memory access allows device controllers to have access to main memory without the intervention of the CPU. This allows the CPU to perform other work while the device communicates with main memory. An interrupt from the device controller is used when the transfer of data is completed.
 
-##### Computer System Architecture
+#### Computer System Architecture
 A **core** is a component that executes instructions and registers for storing data locally. 
 **Multi-processor** systems have more than one single core CPU and will oftentimes share a clock, the computer bus, and other things. Multi processor systems increase *throughput*. But synchronizing them and keeping them working together often takes some extra overhead. 
 **Symmetric Multiprocessing** is when each peer CPU performs all tasks, including both OS and user processes. In this configuration each CPU has its own registers and cache, but they all share system memory.
 **Multicore systems** are now more popular in consumer electronics. Multicore means that just a single processor has multiple computing cores. This can be more efficient due to faster inter-core communication. It is also more power efficient. 
 **Non-uniform memory access (NUMA)** is when all processors share the same physical address space, but each CPU has its own dedicated portion of it to which it's connected by a small local bus. This helps solve the issue of bus contention when all CPUs use the same memory bus. NUMA is only relevant on multiprocessor systems, not multicore systems.
 
-##### OS Operations
+#### OS Operations
 The **bootstrap** program is firmware that starts the kernel process. It initializes all aspects of the system. 
 **Systemd** is a *daemon* outside the kernel that is constantly running in order to provide services to user programs. systemd is an init system that starts many other processes and performs setup for a variety of different programs.
 **Multiprogramming** is when a CPU will always have a program to execute. This means if one program is waiting for something, then the CPU will switch to something else to continue execution. The idea is that there's no idle time.
 **Multitasking** is when a CPU rapidly switches between processes to give the illusion of parallel execution, when in reality it's just concurrent execution governed by a scheduler. 
 
-### Operating System Structures | Chapter 2
-##### System Calls
+## Operating System Structures | Chapter 2
+#### System Calls
 **System calls** provide an interface to the services made available by the operating system. Many operating system utilities (such as `cp` or `ls` ) leverage system calls to perform functions. 
 
 There are many different types of system calls, the main categories are as follows:
@@ -44,25 +44,25 @@ There are many different types of system calls, the main categories are as follo
 5. Communications
 6. Protections
 
-##### Design Goals
+#### Design Goals
 Designing an operating system generally has goals in two main categories, *user goals* and *system goals*. Designing real time embedded operating systems versus large distributed systems both require different user and system goals. RTOS may prioritize system goals over user goals considering speed and efficiency are most important. But a large distributed system may have many users and user friendliness may be paramount. 
-##### Mechanisms vs Policies
+#### Mechanisms vs Policies
 *Mechanisms* determine how to do something and *policies* determine what will be done. Generally a mechanism should function under multiple different policies. 
-##### Operating System Structure
+#### Operating System Structure
 **Monolithic** operating systems are *tightly coupled* meaning that the kernel is generally placed in a single or only a few static binaries and operating in a singular large address space. This can be good for performance due to low overhead, but can be difficult to extend or build upon.
 
 **Layered** approaches give more modularity to the operating system. Generally higher level structures in the OS layers propagate requests to lower level structures to get things done. Privilege and protection is implemented easier in this type of approach. But some overhead cost is incurred due to synchronization and communication. 
-##### System Boot
+#### System Boot
 The boot sequence is as follows:
 1. Bootstrap program loads the kernel
 2. Kernel is loaded into memory and started
 3. Kernel initializes hardware
 4. Root file system is mounted
-##### Operating System Debugging
+#### Operating System Debugging
 A **Core dump** captures the memory of a process and store it for later analysis. This is useful for tracing errors in programs and finding out what happened in harder to understand situations. 
 
-### Processes | Chapter 3
-##### Process Concept
+## Processes | Chapter 3
+#### Process Concept
 A **process** in its simplest form is a program in execution. It is the unit of work in a modern computing system. 
 
 The **program counter** (the register in the CPU that holds the address of the current instruction being executed) and CPU registers represents the status of the current activity of a process. 
@@ -96,7 +96,7 @@ A **process control block** stores all of the data required for a process to sta
 Accounting information. This information includes the amount of CPU and real time used, time limits, account numbers, job or process numbers, and so on.
 **I/O status information**. This information includes the list of I/O devices allocated to the process, a list of open files, and so on.
 
-##### Process Scheduling
+#### Process Scheduling
 The **process scheduler** algorithmically selects an available process to execute on the CPU.
 
 The number of processes currently in memory is known as the **degree of multiprogramming**. 
@@ -110,14 +110,14 @@ After being in a wait queue it is then put back into the ready queue.
 **Swapping** is used when memory space is tight. A process' memory is moved from RAM onto disk temporarily. The process control block still remains in RAM so it can be swapped back in, but it essentially frees up main memory. This is slow especially for systems with mechanical drives as secondary memory and should only be utilized when the RAM is full. 
 
 Switching a CPU core from executing one process to another requires a **context switch**. This involves saving and loading states from process control blocks. Context switches are pure overhead and should be minimized.
-##### Process Creation
+#### Process Creation
 A **PID** is a process identifier that is normally an integer number. 
 
 When creating a child process using `fork()` the child process receives a copy of the parent's address space. Calling `exec()` in a child process will replace the process' memory space with a new program. 
 
 A **zombie** process occurs when a child process has been terminated but its parent hasn't called `wait()` on it yet. This leads to the child process still existing in the process table. Processes are **orphans** when their parent process gets terminated and doesn't call `wait()`. This leaves the child processes behind, normally they are adopted by the init process. In certain scenarios child processes may not be allowed to exist without the parent and when a parent is terminated all of the child processes also get terminated. This is called **cascading termination**. 
 
-##### Interprocess Communication
+#### Interprocess Communication
 Interprocess communication is broken into two categories: **shared memory** and **message passing**.
 
 **Shared memory** requires a process to create a shared memory segment that another process can attach itself to. Then since both processes have access to the shared memory segment, they can read or write back and forth though it. Mechanisms such as mutexes and semaphores may help with synchronization.
@@ -132,7 +132,7 @@ Interprocess communication is broken into two categories: **shared memory** and 
 
 **Sockets** allow for inter-machine communication. Essentially it uses networks to communicate between machines. The most common protocols for sockets are TCP/UDP.
 
-### Threads and Concurrency | Chapter 4
+## Threads and Concurrency | Chapter 4
 A **Thread** is a basic unit of CPU utilization. Each thread has their own:
 - Thread ID
 - Program counter
@@ -169,7 +169,7 @@ A **Thread pool** is a strategy of implicit threading where a *pool* of threads 
 
 **Thread local storage** or TLS is data that is specific to a thread that can be utilized over multiple function calls. Generally the threading library you're using to create and manage the threads provides this mechanism. 
 
-### CPU Scheduling | Chapter 5
+## CPU Scheduling | Chapter 5
 CPU scheduling decisions may take place under the 4 following circumstances:
 1. When a process switches from the running to the waiting state. An example would be the process waiting for I/O. 
 2. When a process switches from the running state to the ready state. For example when an  interrupt occurs.
@@ -180,7 +180,7 @@ When scheduling only happens if a processes switches from running to waiting (ci
 
 The **Dispatcher** is the module that gives control to the process selected by the scheduler. The dispatcher first performs a context switch, then it enables user mode, and finally it jumps to the proper place in memory for the given user program to resume execution. The time it takes to perform these steps is referred to as **dispatch latency**.
 
-##### Scheduling Criteria
+#### Scheduling Criteria
 There are a variety of different variables that come into play when deciding which processes should be scheduled and when.
 
 1. CPU utilization is a big factor. The concept of multiprogramming is that there's always a process that's being run, the CPU should never be idle.
@@ -188,7 +188,7 @@ There are a variety of different variables that come into play when deciding whi
 3. Turnaround time, which is the time it takes to complete a process.
 4. Waiting time, how long has a process been in the ready queue?
 5. Response time is similar to waiting time, except it only counts the time in the queue to *first* execution. All subsequent waits are not apart of the calculation. On systems with a lot of I/O this generally measures efficiency more accurately.
-##### Scheduling Algorithms
+#### Scheduling Algorithms
 **First come, first serve** is the simplest algorithm. It works exactly as the name describes it, the first processes to enter the ready queue are the first ones to be executed. This is essentially just a FIFO queue. The issue with this algorithm is the waiting time. Depending on the order of processes entering the ready queue, the average waiting time fluctuates quite drastically. This formalized as the **convoy effect**. Essentially, a lot of smaller processes have to wait for a bigger process to get off the CPU. It may be more efficient to run the smaller processes multiple times if their I/O wait time is much shorter before running the bigger processes again. This is a nonpreemptive scheduling algorithm.
 
 **Shortest job first** (SJF) scheduling will run the process with the shortest CPU burst first. This is optimal, however unachievable due to the fact that we don't know how long a given process' CPU burst will be. So, this method involves estimating the length of the burst using previous bursts. We take an exponential average and use that to predict how long the next burst will be. The SJF algorithm can either be preemptive or cooperative. The preemptive version can be thought of more as *shortest remaining time first*. This will essentially preempt a currently running process if there's another process that's predicted burst time is shorter than the remaining time left on execution.
@@ -210,7 +210,7 @@ The SJF algorithm is a type of **priority scheduling**. Priority scheduling invo
 **Processor affinity** is an important factor when it comes to load balancing. When a thread has been running on a specific processor, all of that processor's cache have the data from that thread. But if the thread migrates to another processor, then the memory accesses will take much longer as the new processor's cache doesn't have any data relating to the thread. This is an issue of *cache locality*. This is issue is most pertinent on systems with a shared ready queue. In many operating systems you can set processor affinity for a given task. A soft affinity means that the processor will try to keep the same thread but it isn't guaranteed, hard affinity guarantees that a process stays on the same core.
 
 **Heterogenous multiprocessing** is when a system has different types of CPU cores in it. Generally there are different power saving cores and power efficiency is now a factor into load balancing and scheduling between cores. It's not **asymmetric multiprocessing** because all cores will still run the same instruction set. 
-### Synchronization Tools | Chapter 6
+## Synchronization Tools | Chapter 6
 A **cooperating process** is one that can affect or be affected by other processes. 
 
 **Race conditions** occur when two unsynchronized processes rely on or attempt to modify shared data which then becomes stale or unusable due to the order in which the processes accessed or modified the data.
@@ -220,8 +220,14 @@ The **critical section** is an area of code in which a process may be accessing 
 2. Progress - The selection of processes to execute in their critical sections must be done by processes that aren't yet in their remainder sections. 
 3. Bounded waiting - A process is guaranteed that at some point it's request to enter its critical section will be approved.
 
-### Main Memory | Chapter 9
-##### Basic Hardware
+**Memory barriers** are instructions that force any memory changes in one processor to be visible to all other processors before other instructions can be run. This is useful when out of order execution happens and you need to make sure that all processors have the latest information about the threads they're working with. It's essentially a checkpoint to ensure everything's up to date before proceeding. 
+
+**Atomic operations** are operations that can't be interrupted. These are important when it comes to synchronization because you don't want something to occur during certain operations. For example, you don't want updates to a variable to be interruptible during the actual time you're updating it. 
+
+**Mutex locks** are a common way to synchronize threads inside a process. Mutex stands for *mutual exclusion*
+
+## Main Memory | Chapter 9
+#### Basic Hardware
 The CPU is fast enough that memory accesses to the main memory will become a bottleneck and leave the CPU doing nothing. In order to fix this, we have caches which store relevant process data to prevent having to fetch from main memory. 
 
 Each process needs to have separate memory from each other to avoid corruption. One method of doing this is having a base register and a limit register. The **base register** or **relocation register** holds the lowest legal memory address available and the limit supplies the width of the new address space. Within hardware we can then trigger an interrupt if memory access outside of that range is attempted for a given process. 
@@ -237,7 +243,7 @@ A **logical address** (or virtual address) is an address that is generated by th
 
 **Static linking** is when a library is literally apart of the program's binary. This differs from **dynamic linking** of **dynamically linked libraries** where the library isn't baked into the binary. Instead the program is linked to the shared/dynamic library. 
 
-##### Contiguous Memory Allocation
+#### Contiguous Memory Allocation
 Memory is divided into two areas, user and system memory. Normally system resides in higher memory addresses.
 
 In a **variable partition scheme** the operating system keeps a table indicating which parts of memory are available and which are occupied. As programs fill up contiguous slots of the memory, there are holes where new programs can fit. 
@@ -251,7 +257,7 @@ Best fit and worst fit suffer from **external fragmentation**. This is when ther
 
 **Compaction** is a solution to external fragmentation. The downside of compaction is that it's expensive. The idea is to move all used memory to one side and all holes to another creating one big hole. However, only processes that have been relocated (translating virtual addresses to physical) dynamically at runtime. Once again, the cost on this is generally very high and not worth it.
 
-##### Paging
+#### Paging
 Fragmentation (both internal and external) are major problems when it comes memory allocation and efficiency. What if we could fix this problem by storing programs in a noncontiguous fashion. This method is called **paging** .
 
 **Paging** works by breaking down physical memory into blocks called **frames** and breaking virtual memory into **pages**. When a process has to be executed its pages are loaded into any available frames. The pages are stored in fixed size blocks that are the same size as frames or multiples of the frame size.
