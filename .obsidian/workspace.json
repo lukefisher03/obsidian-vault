@@ -161,7 +161,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 327.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -176,9 +176,9 @@
   },
   "active": "9b75e4f4f2fef02b",
   "lastOpenFiles": [
-    "School/Operating Systems/Assignment 7 - Basic Deadlock Prevention.md",
-    "School/Operating Systems/Assignment 8 - Basic Memory Management.md",
     "School/Operating Systems/Final Exam Prep.md",
+    "School/Operating Systems/Assignment 8 - Basic Memory Management.md",
+    "School/Operating Systems/Assignment 7 - Basic Deadlock Prevention.md",
     "Pasted image 20250425125753.png",
     "Assets/Pasted image 20250425122551.png",
     "Assets/Pasted image 20250425122621.png",
