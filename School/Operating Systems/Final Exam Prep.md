@@ -211,7 +211,15 @@ The SJF algorithm is a type of **priority scheduling**. Priority scheduling invo
 
 **Heterogenous multiprocessing** is when a system has different types of CPU cores in it. Generally there are different power saving cores and power efficiency is now a factor into load balancing and scheduling between cores. It's not **asymmetric multiprocessing** because all cores will still run the same instruction set. 
 ### Synchronization Tools | Chapter 6
-A **cooperating process** is one that can affect or be affected by other 
+A **cooperating process** is one that can affect or be affected by other processes. 
+
+**Race conditions** occur when two unsynchronized processes rely on or attempt to modify shared data which then becomes stale or unusable due to the order in which the processes accessed or modified the data.
+
+The **critical section** is an area of code in which a process may be accessing and updating code that is shared with at least one other process. The idea is that when one process is executing in its critical section, no other process is allowed to execute their critical section. A protocol is needed in order to manage entry to critical sections. Each process has to make a request (**entry section**) to enter and then signal an exit (**exit section**) the critical section. The code after the request to the critical section is the **remainder section**. A protocol implementing this must have these two properties:
+1. Mutual exclusion - No two processes running their critical sections simultaneously.
+2. Progress - The selection of processes to execute in their critical sections must be done by processes that aren't yet in their remainder sections. 
+3. Bounded waiting - A process is guaranteed that at some point it's request to enter its critical section will be approved.
+
 ### Main Memory | Chapter 9
 ##### Basic Hardware
 The CPU is fast enough that memory accesses to the main memory will become a bottleneck and leave the CPU doing nothing. In order to fix this, we have caches which store relevant process data to prevent having to fetch from main memory. 
