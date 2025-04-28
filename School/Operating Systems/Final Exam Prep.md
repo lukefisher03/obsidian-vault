@@ -220,12 +220,45 @@ The **critical section** is an area of code in which a process may be accessing 
 2. Progress - The selection of processes to execute in their critical sections must be done by processes that aren't yet in their remainder sections. 
 3. Bounded waiting - A process is guaranteed that at some point it's request to enter its critical section will be approved.
 
+**Peterson's solution** is 
+
 **Memory barriers** are instructions that force any memory changes in one processor to be visible to all other processors before other instructions can be run. This is useful when out of order execution happens and you need to make sure that all processors have the latest information about the threads they're working with. It's essentially a checkpoint to ensure everything's up to date before proceeding. 
 
 **Atomic operations** are operations that can't be interrupted. These are important when it comes to synchronization because you don't want something to occur during certain operations. For example, you don't want updates to a variable to be interruptible during the actual time you're updating it. 
 
-**Mutex locks** are a common way to synchronize threads inside a process. Mutex stands for *mutual exclusion*
+**Mutex locks** are a common way to synchronize threads inside a process. Mutex stands for *mutual exclusion*. For mutexes, a thread must *acquire* the lock and then *release* it before another thread can execute their critical section. The main downside to this implementation is that it requires **busy waiting**. That means that threads will have to continually attempt to acquire a lock until it eventually does. But during that time, the thread isn't completing any useful work. This specific type of mutex that requires processes to waste CPU cycles is called a **spin lock**. Spin locks however can be good if the waiting time is relatively short as they do not require context switches. In non spin lock mutexes, the OS will put threads to sleep if the lock is acquired. This forms a queue of waiting threads that are sleeping (not taking up CPU time) and then once the lock is released it will wake up the next thread in the queue. 
 
+A **semaphore** is essentially a counter that's used to manage access to a shared resource. When a thread wants to use the resource, the thread performs a `wait()`. `wait` is also called *Verhogen*. If the counter is less than zero, it's placed in a queue. If there's spaces available, then the thread can access the resource. Once the thread is finished, it can release the resource by calling `signal()`. `signal` is also called *Proberen* This can be thought of a parking lot with only a limited number of parking spaces.
+
+**Liveness** refers to a set of properties that a system must satisfy to ensure that processes make progress during their execution cycle. **Deadlock** and **Priority Inversion** are the two liveness problems.
+
+**Deadlock** (discussed more in depth in a later chapter) is when two or more processes are waiting indefinitely for an event that can only be caused by one of the waiting processes. 
+
+**Priority inversion** appears in certain situations. Say for example we have a high priority process that's waiting on a lower priority process to release a lock on data that it needs. However, because the high priority process is waiting, a medium level process preempts the lower process and runs. This affects the time it takes for the lower priority process to finish thus delaying the high priority process. This can be solved using a **priority-inheritance protocol** where lower priority processes inherit the priority of a higher level process while the higher process is waiting on the lower.
+## Skip Chapter 7 
+## Deadlocks | Chapter 8
+**Deadlock** is when every process in a set of processes is waiting for an event that can only be caused by another process in the set.
+
+**Livelock** is when a thread continuously attempts an action that it fails. 
+
+Deadlock can arise if the following four conditions hold in a system:
+1. Mutual exclusion
+2. Hold and wait - A thread is holding at least one resource and waiting to pick up another.
+3. No preemption - A resource cannot be preempted. This means that the only way for a resource to be released is for the thread using it to release it.
+4. Circular wait - A set of threads all must be waiting for different threads in the same set. 
+
+**Resource allocation graphs** can describe deadlocks more precisely. The nodes in the graph are either threads or resources. Edges moving from threads to resources indicate that that thread is waiting for that resource. A directed edge from a resource to a thread means that the resource has been allocated to the respective thread. If the graph contains no cycles, then it can be proven that there's no deadlocks. If each resource has only a single instance and there's a cycle then there is a deadlock. However, if each resource has more than one instance and there's a cycle, there *could* be a deadlock, but not necessarily. 
+
+The operating system can respond to deadlocks in a few different ways.
+1. Ignore it and leave it up to the application programmer to resolve the issue.
+2. Implement a protocol to avoid deadlocks ensuring the system never enters a deadlocked state.
+3. We could allow the system to become deadlocked, but then assess and recover.
+
+A **safe state** is one that will not lead to a deadlock. An **unsafe state** *may* lead to a deadlock but no necessarily. A deadlocked state is an unsafe state however. 
+
+**Deadlock prevention** provides a set of methods to ensure that at least one of the necessary conditions cannot hold. These methods prevent deadlocks by constraining how requests for resources can be made.
+
+**Deadlock avoidance** requires that the operating system be given additional information in advance concerning which resources a thread will request in its lifetime. With this knowledge the OS can decide what to do for each request to ensure there are no deadlocks.
 ## Main Memory | Chapter 9
 #### Basic Hardware
 The CPU is fast enough that memory accesses to the main memory will become a bottleneck and leave the CPU doing nothing. In order to fix this, we have caches which store relevant process data to prevent having to fetch from main memory. 
@@ -263,3 +296,44 @@ Fragmentation (both internal and external) are major problems when it comes memo
 **Paging** works by breaking down physical memory into blocks called **frames** and breaking virtual memory into **pages**. When a process has to be executed its pages are loaded into any available frames. The pages are stored in fixed size blocks that are the same size as frames or multiples of the frame size.
 
 Every logical address generated by the CPU is divided into two parts. A page number and a page offset. The page number is used to index the page table and the page offset is to define the physical memory address. 
+## Virtual Memory | Chapter 10
+Virtual memory is a technique that allows the execution of processes that are not completely in memory. A major advantage to this is that programs can be larger than the physical memory limit. **Virtual memory** involves the separation from logical memory as perceived by developers from physical memory. 
+
+The **virtual address space** corresponds to the logical address space given to programmers so they don't have to worry about the limitations of physical memory in their system.
+
+The heap grows upwards and the stack grow downwards.
+
+**Demand paging** means we only load pages that we need, not entire programs. This can lead to more efficient execution of more processes in parallel or concurrently.
+
+The steps for resolving a page fault are as follows:
+1. First we check the page table and see if the reference was invalid or if the page was missing.
+2. If the page was missing then we load it in from secondary memory.
+3. A free frame in physical memory is located.
+4. We update the process' page table to reflect the newly loaded page.
+5. Restart the instruction that set off the trap.
+
+a **free frame** list is kept on hand for resolving page faults. This allows the operating system to quickly access free frames to pair with newly loaded pages. When these pages are stored, their contents are cleared.
+
+**Copy on write** is a method in which parent and child processes can share pages. This is normally done to prevent extra copying of page frames when using `exec` in a child process. If the child process is calling `exec` then it's replacing all the pages anyways and there's no point in doing the extra work of copying the parent's pages.
+
+**Overallocation** occurs when the OS tries to load a page but there's no more physical memory left, ie. no more frames exist to map to the page. A solution to this is **page replacement**. Page replacement essentially tries to find a **victim frame** to unload via some kind of replacement algorithm and then it will swap those frames in order to continue executing the current process.
+
+When doing page replacement you can utilize a **modify bit** or **dirty bit** to flag modified pages. Lets say we page out or **evict** a victim page. If the page has been modified since the last time it's been written to the backing store then we must rewrite back to the store which requires a disk write. However, if we only evict pages that haven't been modified, then we can just kick it out without doing extra writes. 
+
+There are two main things required to implement virtual memory: a **page replacement algorithm** and a **frame replacement algorithm**. 
+
+**Belady's Anomaly** states that for some page replacement algorithms, the page fault rate may *increase* as the number of allocated frames increases. We would normally assume that giving more memory would prevent page faults, but this doesn't seem to be the case. 
+
+The most optimal page replacement algorithm is this: **Replace the page that will not be used for the longest period of time**. This page replacement algorithm is impossible though. It's sometimes unknown when a page will be utilized next. The next best thing is **LRU page replacement**. LRU stands for *last recently used*. This essentially uses the near past to predict the near future. This is essentially the optimal replacement algorithm except we're looking back in time instead of ahead. This yields pretty good results, but not perfect. LRU will associate each page with when it was last used and then pick the page that hasn't been used in the longest time. 
+
+LRU algorithms are normally implemented using either a counter or a stack. *Stack algorithms will never suffer from Belady's anomaly.* Most of the time to implement LRU there has to be hardware assistance. In many cases there's no hardware support, but sometimes there's a reference bit. This bit is set when a page is used, but we don't know the order of pages being used. But it can serve as an approximation.
+
+There are a few different frame allocation algorithms:
+1. Equal allocation - Ignores the fact that multiple programs will have different memory requirements.
+2. Proportional allocation - We allocate frames based on the size of the virtual memory for a process. Generally the size of the program can be estimated from the executable. 
+
+**Global** and **local** frame replacement. Global means that pages can select frames from all frames, even ones being used by other processes. Local means that the page can only select frames that belong to it.
+
+**Thrashing** is when more paging is happening than actual execution of instructions. Thrashing occurs when a process starts stealing frames from other processes who need them and then those processes in turn steal frames from other processes. Thrashing is generally remedied by using a local replacement algorithm or a priority replacement algorithm for frame selection. 
+
+Generally, as the degree of multi programming increases, thrashing becomes a greater risk. You will see CPU utilization drop during thrashing. 
