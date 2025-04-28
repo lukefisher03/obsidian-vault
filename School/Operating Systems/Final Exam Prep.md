@@ -74,6 +74,8 @@ The memory map of a process is shown below
 **Data section** - Global and static variables are stored here.
 **Text section** - The executable code.
 
+Inside the memory map, at very high addresses past the stack, the kernel is inside each processes virtual address space. This provides quick access to system calls and interrupts and any other kernel features. The process cannot actually access that region directly, it can only do so through approved privilege escalation.
+
 An **activation record** is pushed to the stack when a function is called and contains the parameters, local variables, and return addresses. Once the function is finished, the activation record is popped. 
 
 The stack and heap grow towards each other, but the OS must ensure they never overlap. 
